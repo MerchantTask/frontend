@@ -15,7 +15,7 @@
   
           }
           $.ajax({
-            url: 'http://localhost:8080/login/',
+            url: 'http://localhost:8000/login/',
             type: 'post',
             dataType: 'json',
             data: data,
