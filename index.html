@@ -11,6 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="js/getallcompanies.js"></script>
+		<script src="js/getalltopup.js"></script>
+
 	</head>
 	<body class="is-preload">
 
@@ -85,6 +87,7 @@
 <table id="merchantlist" class="table table-bordered table-responsive-lg" >
 	<thead class="dash-box dash-box-color-3">
 	  <tr>
+		<th>ID</th>
 		<th>Company Name</th>
 		<th>Address</th>
 		<th>Contact Person</th>
@@ -99,27 +102,29 @@
 
 	</tbody>
   </table>
-
-  <h3>Merchant Topup</h3>
-  <table style="width:100%">
-	<button>ADD</button>
-	<tr>
-	  <th>Date</th>
-	  <th>How much TopUP</th> 
-	  <th>Mode of Payment </th>
-	  <th>Current Balance</th>
-	 
-	</tr>
-	<tr>
-	  <td></td>
-	  <td></td>
-	  <td></td>
-	  <td></td>
+ 
+  <button class="button" onclick="window.location.href='topup.html'">Add Topup</button>
+  <br>
 	
-	</tr>
-		
-  </table>
-
+	<h3>Merchant Topup</h3>
+	<table id="Topup" class="table table-bordered table-responsive-lg" >
+		<thead class="dash-box dash-box-color-3">
+		  <tr>
+			<th>ID</th>
+			<th>Date</th>
+			<th>Topup Amount</th> 
+			<th>Mode of Payment </th>
+			<th>Company Name </th>
+			<th>Remarks</th>
+		   
+		  </tr>
+		</thead>
+		<tbody>
+	
+		</tbody>
+	  </table>
+ 
+ 
   </div>
 
 		<!-- Scripts -->
@@ -127,6 +132,16 @@
 			
 			<!--Data tables -->
 			<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
- 
+  <script>
+	$(document).ready(function () {
+		$('#merchantlist').DataTable();
+	});
+</script>
+<script>
+	$(document).ready(function () {
+		$('#Topup').DataTable();
+	});
+</script>
+
 	</body>
 </html>

@@ -12,6 +12,7 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
   $.each(res, function (index) {
 
     list.row.add([
+      res[index]._id,
       res[index].company_name,
       res[index].address,
       res[index].contact_person,
