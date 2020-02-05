@@ -1,4 +1,5 @@
 $("form.company").on("submit",function(e){
+
     e.preventDefault();
     Name = $("#name").val();
     Address = $("#address").val();
@@ -7,6 +8,7 @@ $("form.company").on("submit",function(e){
     ContactPersonPhone = $("#phone").val();
     CompanyEmail = $("#cemail").val();
     PAN = $("#pan").val();
+ 
 
     data ={
         "Name":Name,
@@ -18,22 +20,19 @@ $("form.company").on("submit",function(e){
         "PAN":PAN
     }
     $.ajax({
-        url:'http://localhost:8000/Company/companyRegister/',
+        url:'http://localhost:8000/Company/addCompany/',
         type:"post",
         dataType:'json',
         data:data,
+        beforeSend: function (xhr) {
+
+          },
         
         success: function(res,textStatus,xhr){
-            if(res.message){
-            location.href = "dashboard.html";
-            }
+             alert(res.message);
+        }
         
-        else {
-            alert(res.message);
-          }
-           
-          
-        },
+       ,
         error: function (xhr, textStatus, errorThrown) {
             console.log('Error in Operation');
           }
