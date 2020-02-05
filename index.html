@@ -8,6 +8,9 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="js/getallcompanies.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -75,33 +78,29 @@
 				</div>
 			</section>
 <!-- ------Table -->
-<table style="width:100%">
-	<button onclick="window.location.href='companyRegister.html'">ADD</button>
-	<tr>
-	  <th>Company Name</th>
-	  <th>Company Address</th> 
-	  <th>Contact Person </th>
-	  <th>Company Email</th>
-	  <th>Company Phone</th> 
-	  <th>Company Email </th>
-	  <th>PAN</th>
-	  <th>Update</th>
-	  <th>Delete</th>	
-	</tr>
-	<tr>
-	  <td></td>
-	  <td></td>
-	  <td></td>
-	  <td></td>
-	  <td></td>
-	  <td></td>
-	  <td></td>
-	  <td><button>Edit</button></td>
-	  <td><button>Delete</button></td>
-	</tr>
-		
+<div class="inner">
+<button class="button" onclick="window.location.href='companyRegister.html'">Add Merchants</button>
+<br>
+<h3>List of Merchants</h3>
+<table id="merchantlist" class="table table-bordered table-responsive-lg" >
+	<thead class="dash-box dash-box-color-3">
+	  <tr>
+		<th>Company Name</th>
+		<th>Address</th>
+		<th>Contact Person</th>
+		<th>Contact phone</th>
+		<th>Contact Email</th>
+		<th>Company Email</th>
+		<th>PAN</th>
+		<th>Action</th>
+	  </tr>
+	</thead>
+	<tbody>
+
+	</tbody>
   </table>
-  <h3>Marchent TopUP</h3>
+
+  <h3>Merchant Topup</h3>
   <table style="width:100%">
 	<button>ADD</button>
 	<tr>
@@ -121,14 +120,17 @@
 		
   </table>
 
-  
+  </div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+			
+			<!--Data tables -->
+			<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script>
+	$(document).ready(function () {
+		$('#merchantlist').DataTable();
+	});
+</script>
 	</body>
 </html>

@@ -25,7 +25,7 @@
                 localStorage.setItem('token', res.token);
               
                
-                  location.href = "dashboard.html";
+                  location.href = "index.html";
                
   
               } else {
