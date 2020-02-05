@@ -20,7 +20,7 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
       res[index].contact_email,
       res[index].company_email,
       res[index].pan,
-     '<a href="CompanyUpdate.html'+res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' +
+     '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' +
      '<button class="btn"><i class="fa fa-trash fa-fw" id="deleteCompany"></i></button>'
      
     ]).draw(false);
