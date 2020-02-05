@@ -1,35 +1,37 @@
+$(document).ready(function () {
 $("form.company").on("submit",function(e){
 
     e.preventDefault();
-    Name = $("#name").val();
-    Address = $("#address").val();
-    ContactPerson = $("#person").val();
-    ContactPersonEmail = $("#email").val();
-    ContactPersonPhone = $("#phone").val();
-    CompanyEmail = $("#cemail").val();
-    PAN = $("#pan").val();
+    company_name = $("#company_name").val();
+    address = $("#address").val();
+    contact_person = $("#contact_person").val();
+    contact_email = $("#contact_email").val();
+    contact_phone = $("#contact_phone").val();
+    company_email = $("#email").val();
+    pan = $("#pan").val();
  
 
     data ={
-        "Name":Name,
-        "Address":Address,
-        "ContactPerson":ContactPerson,
-        "ContactPersonEmail":ContactPersonEmail,
-        "ContactPersonPhone":ContactPersonPhone,
-        "CompanyEmail":CompanyEmail,
-        "PAN":PAN
+        "company_name":company_name,
+        "address":address,
+        "contact_person":contact_person,
+        "contact_email":contact_email,
+        "contact_phone":contact_phone,
+        "company_email":company_email,
+        "pan":pan
     }
     $.ajax({
         url:'http://localhost:8000/Company/addCompany/',
         type:"post",
         dataType:'json',
         data:data,
-        beforeSend: function (xhr) {
-
-          },
+       
         
         success: function(res,textStatus,xhr){
-             alert(res.message);
+             if(res.message=="Succesfull"){
+               alert("added successfully")
+             }
+             
         }
         
        ,
@@ -37,4 +39,5 @@ $("form.company").on("submit",function(e){
             console.log('Error in Operation');
           }
     });
-})
+});
+});

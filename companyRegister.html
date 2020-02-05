@@ -1,8 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      input[type=text], input[type=password], input[type=number], input[type=file] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.company{
+      margin-left: 120px;
+    } 
+.button {
+  background-color: #Bbbbbb;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+.button:hover {
+  opacity: 0.8;
+}
+
+      </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="js/CompanyRegister.js"></script>
+    <script src="js/companyRegister.js"></script>
   </head>
 <body>
 
@@ -10,27 +36,30 @@
 
 <form class="company">
 Company Name:<br>
-  <input type="text" name="name" id="name">
+  <input type="text" name="name" id="company_name">
   <br>
  Company Address:<br>
   <input type="text" name="address" id="address">
   <br><br>
   Contact Person:<br>
-  <input type="text" name="name" id="person">
+  <input type="text" name="contact_person" id="contact_person">
   <br>
  Contact Email:<br>
-  <input type="text" name="Email" id="email">
+  <input type="text" name="Emasil" id="contact_email">
   <br><br>
   Contact Phone:<br>
-  <input type="text" name="phone" id="phone">
+  <input type="text" name="phone" id="contact_phone">
   <br><br>
   Company Email:<br>
-  <input type="text" name="Email" id="cemail">
+  <input type="text" name="Email" id="email">
   <br><br>
   PAN:<br>
   <input type="number" name="pan" id="pan">
   <br><br>
-  <input type="submit" value="Submit">
+  Document:<br>
+  <input type="file" name="document" id="document">
+  <br><br>
+  <input class="button" type="submit" value="Submit">
 </form> 
 
 
