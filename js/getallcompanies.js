@@ -20,12 +20,43 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
       res[index].contact_email,
       res[index].company_email,
       res[index].pan,
-     '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' +
-     '<button class="btn"><i class="fa fa-trash fa-fw" id="deleteCompany"></i></button>'
+     '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' ,
+     '<button class="btn" id="deleteCompany"><i class="fa fa-trash fa-fw" ></i></button>'
      
     ]).draw(false);
 
   });
 
 });
+
+   
+  $('#merchantlist').on('click', '#deleteCompany',function () {
+      var data = list.row($(this).parents('tr')).data();
+      var id = (data[0]);
+   
+      $.ajax({
+        url: 'http://localhost:8000/company/deleteCompany/' + id,
+        type: 'delete',
+        beforeSend: function (xhr) {
+         
+        },
+        success: function (res, textStatus, xhr) {
+          if (res.message == "Deleted Successfully") {
+            window.location.reload();
+          }
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          console.log(xhr);
+        }
+      });
+
+  } );
+
+$.getJSON('http://localhost:8000/Company/merchantCount', function (res) {
+  
+  $("#merchantCount").append(res.count);
+});
+
+
 });
