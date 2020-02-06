@@ -33,7 +33,12 @@
 <body>
 
 <h2>Company Register</h2>
+<form enctype="multipart/form-data" id="imageUploadForm">
+    
+  <span class="label" id="image_display"></span>
+  <input  type="file" name="imageFile" id="verification_image">
 
+</form>
 <form class="company">
 Company Name:<br>
   <input type="text" name="name" id="company_name">
@@ -57,8 +62,9 @@ Company Name:<br>
   <input type="number" name="pan" id="pan">
   <br><br>
   Document:<br>
-  <input type="file" name="document" id="document">
-  <br><br>
+  
+ 
+
   <input class="button" type="submit" value="Submit">
 </form> 
 
