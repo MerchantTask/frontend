@@ -9,6 +9,8 @@ var list = $('#merchantlist').DataTable({
 
 );
 $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
+ 
+
   $.each(res, function (index) {
 
     list.row.add([
@@ -20,6 +22,8 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
       res[index].contact_email,
       res[index].company_email,
       res[index].pan,
+      res[index].verification_imagename,
+      
      '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' ,
      '<button class="btn" id="deleteCompany"><i class="fa fa-trash fa-fw" ></i></button>'
      
