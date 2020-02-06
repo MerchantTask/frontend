@@ -23,6 +23,7 @@
             success: function (res, textStatus, xhr) {
               if (res.token != null) {
                 localStorage.setItem('token', res.token);
+                localStorage.setItem('adminId',res.id)
               
                
                   location.href = "index.html";
