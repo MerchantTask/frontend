@@ -9,6 +9,8 @@ var list = $('#merchantlist').DataTable({
 
 );
 $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
+ 
+
   $.each(res, function (index) {
 
     list.row.add([
@@ -20,6 +22,8 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
       res[index].contact_email,
       res[index].company_email,
       res[index].pan,
+      res[index].verification_imagename,
+      
      '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' ,
      '<button class="btn" id="deleteCompany"><i class="fa fa-trash fa-fw" ></i></button>'
      
@@ -31,6 +35,9 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
 
    
   $('#merchantlist').on('click', '#deleteCompany',function () {
+    var checkstr =  confirm('are you sure you want to delete this?');
+    if(checkstr == true){
+      // do your code
       var data = list.row($(this).parents('tr')).data();
       var id = (data[0]);
    
@@ -50,6 +57,29 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
           console.log(xhr);
         }
       });
+
+    }else{
+    return false;
+    }
+      // var data = list.row($(this).parents('tr')).data();
+      // var id = (data[0]);
+   
+      // $.ajax({
+      //   url: 'http://localhost:8000/company/deleteCompany/' + id,
+      //   type: 'delete',
+      //   beforeSend: function (xhr) {
+         
+      //   },
+      //   success: function (res, textStatus, xhr) {
+      //     if (res.message == "Deleted Successfully") {
+      //       window.location.reload();
+      //     }
+
+      //   },
+      //   error: function (xhr, textStatus, errorThrown) {
+      //     console.log(xhr);
+      //   }
+      // });
 
   } );
 

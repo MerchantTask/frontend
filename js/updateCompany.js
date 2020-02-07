@@ -4,7 +4,34 @@ $(document).ready(function () {
 
     var merchant_id = urlParams.get("id");
    
-
+    let imageFile = '';
+    $("#verification_image").on('change', function () {
+      let formData = new FormData();
+      let files = $("#verification_image").get(0).files;
+      if (files.length > 0) {
+        formData.append("imageFile", files[0]);
+      }
+      $.ajax({
+        url: 'http://localhost:8000/Company/upload/',
+        type: 'post',
+        contentType: false,
+        cache: false,
+        processData: false,
+        data: formData,
+  
+        success: function (data) {
+          imageFile = data.filename;
+  
+          $('#image_display').html('<img src="http://localhost:8000/uploads/' + data.filename +
+            '" class="img-thumbnail" alt="Sample image" height="200px" width="200px">');
+  
+        },
+        error: function () {
+          alert("Image upload failed");
+        }
+  
+      });
+    });
     
     $.getJSON('http://localhost:8000/company/fetchSingleCompany/' + merchant_id, function (res) {
       $.each(res, function (index) {
@@ -15,6 +42,7 @@ $(document).ready(function () {
         $('#phone').val(res[index].contact_phone);
         $('#cemail').val(res[index].company_email);
         $('#pan').val(res[index].pan);
+        $('#verification_image').val(res[index].verification_imagename);
 
         });
     });
@@ -28,6 +56,7 @@ $(document).ready(function () {
       var contact_phone = $('#phone').val();
       var company_email = $('#cemail').val();
       var pan = $('#pan').val();
+      listimage = imageFile;
       
 
 
@@ -38,7 +67,8 @@ $(document).ready(function () {
         "contact_email": contact_email,
         "contact_phone": contact_phone,
         "company_email": company_email,
-        "pan": pan
+        "pan": pan,
+        "verification_imagename":listimage
       }
 
       $.ajax({
