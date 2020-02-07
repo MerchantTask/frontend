@@ -2,7 +2,9 @@ $(document).ready(function () {
     var id = localStorage.getItem('adminId');
 
 $("form.changePassword").on("submit", function () {
-
+  var checkstr =  confirm('are you sure you want change password?');
+  if(checkstr == true){
+    // do your code
     var oldpassword = $('#oldpassword').val();
     var password = $('#password').val();
    
@@ -25,5 +27,9 @@ $("form.changePassword").on("submit", function () {
       }
     });
     return false;
+  }else{
+  return false;
+  }
+   
   });
 });

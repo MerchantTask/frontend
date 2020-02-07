@@ -35,6 +35,9 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
 
    
   $('#merchantlist').on('click', '#deleteCompany',function () {
+    var checkstr =  confirm('are you sure you want to delete this?');
+    if(checkstr == true){
+      // do your code
       var data = list.row($(this).parents('tr')).data();
       var id = (data[0]);
    
@@ -54,6 +57,29 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
           console.log(xhr);
         }
       });
+
+    }else{
+    return false;
+    }
+      // var data = list.row($(this).parents('tr')).data();
+      // var id = (data[0]);
+   
+      // $.ajax({
+      //   url: 'http://localhost:8000/company/deleteCompany/' + id,
+      //   type: 'delete',
+      //   beforeSend: function (xhr) {
+         
+      //   },
+      //   success: function (res, textStatus, xhr) {
+      //     if (res.message == "Deleted Successfully") {
+      //       window.location.reload();
+      //     }
+
+      //   },
+      //   error: function (xhr, textStatus, errorThrown) {
+      //     console.log(xhr);
+      //   }
+      // });
 
   } );
 
