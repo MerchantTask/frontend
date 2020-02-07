@@ -10,14 +10,14 @@ $(document).ready(function () {
     );
     $.getJSON('http://localhost:8000/topup/getTopup/', function (res) {
       $.each(res, function (index) {
-    
+        
         list.row.add([
           res[index]._id,
           new Date(res[index].date).toISOString().split(
             'T')[0],
           res[index].topup_amount,
           res[index].mode_of_payment,
-          res[index].company_name,
+          res[index].company_id,
           res[index].remarks,
         
          
