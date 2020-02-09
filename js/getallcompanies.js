@@ -23,6 +23,10 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
       res[index].company_email,
       res[index].pan,
       res[index].current_balance,
+
+      '<img src="http://localhost:8000/uploads/' +  res[index].verification_imagename +
+      '" class="img-thumbnail" alt="Sample image" height="50px" width="100px">',
+
       
      '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' ,
      '<button class="btn" id="deleteCompany"><i class="fa fa-trash fa-fw" ></i></button>'
