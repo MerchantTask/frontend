@@ -9,20 +9,16 @@ $(document).ready(function () {
     
     );
     $.getJSON('http://localhost:8000/topup/getTopup/', function (res) {
-      $.each(res, function (index) {
+      $.each(res.merchants, function (index) {
         
         list.row.add([
-          res[index]._id,
-          new Date(res[index].date).toISOString().split(
+          res.merchants[index]._id,
+          new Date(res.merchants[index].date).toISOString().split(
             'T')[0],
-          res[index].topup_amount,
-          res[index].mode_of_payment,
-          res[index].company_id,
-          res[index].remarks,
-        
-         
-          '<a href="singleView.html?id=' + res[index]._id +
-          '"><button class="btn btn-block  submitButton" type="submit" name="Submit" id="approve">View</button></a>'
+          res.merchants[index].topup_amount,
+          res.merchants[index].mode_of_payment,
+          res.merchants[index].company_id.company_name,
+          res.merchants[index].remarks
         ]).draw(false);
     
       });
