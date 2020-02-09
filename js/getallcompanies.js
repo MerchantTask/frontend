@@ -23,8 +23,10 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
       res[index].company_email,
       res[index].pan,
       res[index].current_balance,
+
       '<img src="http://localhost:8000/uploads/' +  res[index].verification_imagename +
       '" class="img-thumbnail" alt="Sample image" height="50px" width="100px">',
+
       
      '<a href="CompanyUpdate.html?id='+ res[index]._id +'"><button class="btn"><i class="fa fa-cog fa-fw"></i></button></a>' ,
      '<button class="btn" id="deleteCompany"><i class="fa fa-trash fa-fw" ></i></button>'
@@ -63,26 +65,7 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
     }else{
     return false;
     }
-      // var data = list.row($(this).parents('tr')).data();
-      // var id = (data[0]);
-   
-      // $.ajax({
-      //   url: 'http://localhost:8000/company/deleteCompany/' + id,
-      //   type: 'delete',
-      //   beforeSend: function (xhr) {
-         
-      //   },
-      //   success: function (res, textStatus, xhr) {
-      //     if (res.message == "Deleted Successfully") {
-      //       window.location.reload();
-      //     }
-
-      //   },
-      //   error: function (xhr, textStatus, errorThrown) {
-      //     console.log(xhr);
-      //   }
-      // });
-
+     
   } );
 
 $.getJSON('http://localhost:8000/Company/merchantCount', function (res) {
