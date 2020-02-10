@@ -36,30 +36,30 @@
 <form enctype="multipart/form-data" id="imageUploadForm">
     
   <span class="label" id="image_display"></span>
-  <input  type="file" name="imageFile" id="verification_image">
+  <input  type="file" name="imageFile" id="verification_image" required>
 
 </form>
-<form class="company">
+<form class="company" action="/action_page.php">
 Company Name:<br>
-  <input type="text" name="name" id="company_name">
+  <input type="text" name="name" id="company_name" required>
   <br>
  Company Address:<br>
-  <input type="text" name="address" id="address">
+  <input type="text" name="address" id="address" required>
   <br><br>
   Contact Person:<br>
-  <input type="text" name="contact_person" id="contact_person">
+  <input type="text" name="contact_person" id="contact_person" required>
   <br>
  Contact Email:<br>
-  <input type="text" name="Emasil" id="contact_email">
+  <input type="text" name="Emasil" id="contact_email" required>
   <br><br>
   Contact Phone:<br>
-  <input type="text" name="phone" id="contact_phone">
+  <input type="text" name="phone" id="contact_phone" required>
   <br><br>
   Company Email:<br>
-  <input type="text" name="Email" id="email">
+  <input type="text" name="Email" id="email" required>
   <br><br>
   PAN:<br>
-  <input type="number" name="pan" id="pan">
+  <input type="number" name="pan" id="pan" required>
   <br><br>
   Document:<br>
   
