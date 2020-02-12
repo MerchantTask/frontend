@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
   let imageFile = '';
+  var tok = localStorage.getItem('token');
+  if(tok==null){
+    console.log ("tok");
+    alert("please Login first");
+    window.location.href ='login.html';
+  }else{
   $("#verification_image").on('change', function () {
     let formData = new FormData();
     let files = $("#verification_image").get(0).files;
@@ -29,7 +35,7 @@ $(document).ready(function () {
     });
   });
 
-
+  }
 
 $("form.company").on("submit",function(e){
 

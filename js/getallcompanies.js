@@ -8,6 +8,12 @@ var list = $('#merchantlist').DataTable({
 }
 
 );
+var tok = localStorage.getItem('token');
+if(tok==null){
+  console.log ("tok");
+  alert("please Login first");
+  window.location.href ='login.html';
+}else{
 $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
  
 
@@ -37,7 +43,7 @@ $.getJSON('http://localhost:8000/Company/allCompanies/', function (res) {
 
 });
 
-   
+}
   $('#merchantlist').on('click', '#deleteCompany',function () {
     var checkstr =  confirm('are you sure you want to delete this?');
     if(checkstr == true){
@@ -72,6 +78,7 @@ $.getJSON('http://localhost:8000/Company/merchantCount', function (res) {
   
   $("#merchantCount").append(res.count);
 });
+
 
 
 });

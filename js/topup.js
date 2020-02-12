@@ -1,5 +1,10 @@
 $(document).ready(function () {
- 
+  var tok = localStorage.getItem('token');
+  if(tok==null){
+    console.log ("tok");
+    alert("please Login first");
+    window.location.href ='login.html';
+  }else{
     //console.log(tok);
   
     $.getJSON('http://localhost:8000/Company/merchantList',function(res){
@@ -44,4 +49,5 @@ $(document).ready(function () {
         }
       });
     });
+  }
   });
