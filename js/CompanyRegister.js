@@ -3,8 +3,7 @@ $(document).ready(function () {
   let imageFile = '';
   var tok = localStorage.getItem('token');
   if(tok==null){
-    console.log ("tok");
-    alert("please Login first");
+   
     window.location.href ='login.html';
   }else{
   $("#verification_image").on('change', function () {
@@ -70,6 +69,7 @@ $("form.company").on("submit",function(e){
         success: function(res,textStatus,xhr){
              if(res.message=="Succesfull"){
                alert("added successfully")
+               location.href="index.html"
              }
              
         }

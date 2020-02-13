@@ -8,12 +8,7 @@ $(document).ready(function () {
     }
     
     );
-    var tok = localStorage.getItem('token');
-    if(tok==null){
-      console.log ("tok");
-      alert("please Login first");
-      window.location.href ='login.html';
-    }else{
+    
     $.getJSON('http://localhost:8000/topup/getTopup/', function (res) {
       $.each(res.merchants, function (index) {
         
@@ -30,6 +25,5 @@ $(document).ready(function () {
       });
     
     });
-  }
-    });
+   });
   

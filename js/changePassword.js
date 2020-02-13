@@ -2,8 +2,7 @@ $(document).ready(function () {
     var id = localStorage.getItem('adminId');
     var tok = localStorage.getItem('token');
     if(tok==null){
-      console.log ("tok");
-      alert("please Login first");
+     
       window.location.href ='login.html';
     }else{
 

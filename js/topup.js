@@ -1,8 +1,7 @@
 $(document).ready(function () {
   var tok = localStorage.getItem('token');
   if(tok==null){
-    console.log ("tok");
-    alert("please Login first");
+   
     window.location.href ='login.html';
   }else{
     //console.log(tok);
@@ -39,6 +38,7 @@ $(document).ready(function () {
 
         success: function (res, textStatus, xhr) {
             if (res.message == "Succesfull") {
+              alert("Topup successfully added")
                 location.href = "index.html"
             }
 

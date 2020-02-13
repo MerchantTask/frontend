@@ -1,7 +1,10 @@
 
     $(document).ready(function () {
         var token = localStorage.getItem('token');
-     
+    if(token!==null){
+      window.location.href = 'index.html';
+    } else {
+    
   
       $("form.loginForm").on("submit", function (e) {
         e.preventDefault();
@@ -105,5 +108,6 @@
                 }
               });
             });
+          }
       });
   

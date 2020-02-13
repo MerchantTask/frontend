@@ -7,8 +7,7 @@ $(document).ready(function () {
     let imageFile = '';
     var tok = localStorage.getItem('token');
     if(tok==null){
-      console.log ("tok");
-      alert("please Login first");
+    
       window.location.href ='login.html';
     }else{
     $("#verification_image").on('change', function () {
@@ -86,7 +85,9 @@ $(document).ready(function () {
         },
         success: function (result) {
           if(result){
-              alert("Merchant Updated");}
+              alert("Merchant Updated");
+            location.href="index.html";
+            }
          
         }
       });
