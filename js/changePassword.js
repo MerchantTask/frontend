@@ -23,12 +23,16 @@ $("form.changePassword").on("submit", function () {
       type: "PUT",
       url: "http://localhost:8000/login/changePassword/" + id,
       data: data,
-      beforeSend: function (xhr) {
-
-      },
+      beforeSend: function(xhr) {
+        if (tok) {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+        }
+    },
       success: function (result) {
-        if(result){
-            alert(result.message);}
+        alert(result.message);
+        if(result.message=="Password Changed"){
+          window.location.href ='index.html';
+          }
        
       }
     });
