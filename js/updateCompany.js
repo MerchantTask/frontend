@@ -23,7 +23,11 @@ $(document).ready(function () {
         cache: false,
         processData: false,
         data: formData,
-  
+        beforeSend: function(xhr) {
+          if (tok) {
+              xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+          }
+      },
         success: function (data) {
           imageFile = data.filename;
   
@@ -83,9 +87,11 @@ $(document).ready(function () {
         type: "PUT",
         url: "http://localhost:8000/company/updateCompany/" + merchant_id,
         data: data,
-        beforeSend: function (xhr) {
-
-        },
+        beforeSend: function(xhr) {
+          if (tok) {
+              xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+          }
+      },
         success: function (result) {
           if(result){
               alert("Merchant Updated");

@@ -1,26 +1,26 @@
 $(document).ready(function () {
   var tok = localStorage.getItem('token');
 
-  // $.ajax({
-  //   type: 'get',
+  $.ajax({
+    type: 'get',
     
-  //   url: 'http://localhost:8000/login/users/me',
-  //   beforeSend: function (xhr) {
+    url: 'http://localhost:8000/login/users/me',
+    beforeSend: function (xhr) {
 
-  //     if (tok) {
+      if (tok) {
 
-  //       xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
-  //     }
-  //   },
+        xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+      }
+    },
 
-  //   success: function (data) {
+    success: function (data) {
     
-  //   },
-  //   error: function () {
+    },
+    error: function () {
     
-  //     location.href = "login.html"
-  //   }
-  // });
+      location.href = "login.html"
+    }
+  });
 
 
   $("#logout").click(function () {

@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 $("form.resetPasswordForm").on("submit", function () {
 
-    // do your code
+   
    
      password = $('#password').val();
 

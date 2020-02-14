@@ -35,7 +35,11 @@ $(document).ready(function () {
         type: 'post',
         dataType: 'json',
         data: data,
-
+        beforeSend: function(xhr) {
+          if (tok) {
+              xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+          }
+      },
         success: function (res, textStatus, xhr) {
             if (res.message == "Succesfull") {
               alert("Topup successfully added")

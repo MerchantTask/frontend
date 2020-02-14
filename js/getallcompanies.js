@@ -87,9 +87,11 @@ $(document).ready(function () {
       $.ajax({
         url: 'http://localhost:8000/company/deleteCompany/' + id,
         type: 'delete',
-        beforeSend: function (xhr) {
-
-        },
+        beforeSend: function(xhr) {
+          if (tok) {
+              xhr.setRequestHeader('Authorization', 'Bearer ' + tok);
+          }
+      },
         success: function (res, textStatus, xhr) {
           if (res.message == "Deleted Successfully") {
             window.location.reload();
