@@ -49,8 +49,19 @@ $(document).ready(function () {
         },
         
         error: function (xhr, textStatus, errorThrown) {
-          console.log('Error in Operation');
-        }
+          var result = (xhr.responseJSON);
+
+          if(result.topup_amount){
+            alert(result.topup_amount.message)
+          }
+          
+          if(result.mode_of_payment){
+            alert(result.mode_of_payment.message)
+          }
+          if(result.remarks){
+            alert(result.remarks.message)
+          }       
+         }
       });
     });
   }

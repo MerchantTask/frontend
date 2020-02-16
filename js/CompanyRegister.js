@@ -104,6 +104,9 @@ $(document).ready(function () {
         if(result.company_email){
           alert(result.contact_email.message)
         }
+        if(result.pan){
+          alert(result.pan.message)
+        }
       }
     });
   });
