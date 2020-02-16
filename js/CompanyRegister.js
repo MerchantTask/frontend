@@ -76,14 +76,34 @@ $(document).ready(function () {
     },
 
       success: function (res, textStatus, xhr) {
-          if (res.message == "Succesfull") {
-            alert("added successfully")
+        if (res.message_success == "Register Successful") {
+          alert("Register Successful")
             location.href = "index.html"
           }
 
         },
       error: function (xhr, textStatus, errorThrown) {
-        console.log('Error in Operation');
+        var result = (xhr.responseJSON);
+        if(result.company_name){
+          alert(result.company_name.message)
+        }
+        
+        if(result.address){
+          alert(result.address.message)
+        }
+        if(result.contact_person){
+          alert(result.contact_person.message)
+        }
+
+        if(result.contact_email){
+          alert(result.contact_email.message)
+        }
+        if(result.contact_phone){
+          alert(result.contact_phone.message)
+        }
+        if(result.company_email){
+          alert(result.contact_email.message)
+        }
       }
     });
   });
